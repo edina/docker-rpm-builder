@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fpm -v 1.11.3 \
-    --iteration 5.el6 \
+    --iteration 6.el6 \
     --epoch 1 \
     --vendor EDINA \
     --provides gdal \
@@ -17,6 +17,7 @@ fpm -v 1.11.3 \
     -d libxml2 \
     -d proj-epsg \
     -d proj-devel \
+    -d libkml \
     -a x86_64 \
     -m andrew.seales@ed.ac.uk \
     -n gdal \
