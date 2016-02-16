@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fpm -v 1.11.3 \
-    --iteration 3.el6 \
+    --iteration 5.el6 \
     --epoch 1 \
     --vendor EDINA \
     --provides gdal \
@@ -23,4 +23,5 @@ fpm -v 1.11.3 \
     -s dir \
     -C /tmp/gdal \
     -t rpm \
+    --after-install after-install.sh \
     usr

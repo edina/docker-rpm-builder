@@ -9,7 +9,8 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.n
 
 # Stuff for gdal build
 RUN wget http://download.osgeo.org/gdal/${version}/gdal-${version}.tar.gz -O /gdal-${version}.tar.gz && tar -zxf /gdal-${version}.tar.gz
-RUN yum install -y postgresql-devel libpng-devel libjpeg-devel giflib-devel xerces-c-devel curl-devel sqlite-devel geos-devel expat-devel libxml2-devel proj-devel proj-epsg
+ADD edina-geo.repo /etc/yum.repos.d/edina-geo.repo
+RUN yum install -y postgresql-devel libpng-devel libjpeg-devel giflib-devel xerces-c-devel curl-devel sqlite-devel geos-devel expat-devel libxml2-devel proj-devel proj-epsg libkml
 
 WORKDIR "/gdal-${version}"
 RUN ./configure --prefix=/usr && make -j$(nproc)
@@ -17,5 +18,6 @@ RUN make install DESTDIR=/tmp/gdal
 
 WORKDIR "/"
 ADD fpm.sh /fpm.sh
+ADD after-install.sh /after-install.sh
 RUN /fpm.sh
 
