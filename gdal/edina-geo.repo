@@ -1,6 +1,0 @@
-[edina-geo]
-name=EDINA Geoservices Yum Repo
-enabled=1
-baseurl=http://dlib-puppet.edina.ac.uk/repos/edina/yum/redhat/6
-gpgcheck=0
-
