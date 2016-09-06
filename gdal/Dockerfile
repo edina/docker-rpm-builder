@@ -2,8 +2,8 @@ FROM centos:6
 
 ENV version 1.11.3
 
-RUN yum update -y
-RUN yum install -y wget curl rubygems ruby-devel gcc gcc-c++ tar rpm-build
+RUN yum update -y && yum -y clean all
+RUN yum install -y wget curl rubygems ruby-devel gcc gcc-c++ tar rpm-build && yum -y clean all
 RUN gem install cabin -v 0.6.1 --no-ri --no-rdoc
 RUN gem install ffi -v 1.9.3 --no-ri --no-rdoc
 RUN gem install addressable -v 2.3.5 --no-ri --no-rdoc
@@ -18,7 +18,7 @@ RUN gem install fpm -v 1.0.1 --no-ri --no-rdoc
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 
 # Packages for building
-RUN yum install -y autoconf rpm-build libtool expat-devel curl-devel zlib-devel postgresql-devel libpng-devel libjpeg-devel giflib-devel xerces-c-devel sqlite-devel geos-devel libxml2-devel proj-devel proj-epsg git
+RUN yum install -y autoconf rpm-build libtool expat-devel curl-devel zlib-devel postgresql-devel libpng-devel libjpeg-devel giflib-devel xerces-c-devel sqlite-devel geos-devel libxml2-devel proj-devel proj-epsg git && yum -y clean all
 
 # Stuff for libkml build
 RUN git clone https://github.com/google/libkml.git /root/libkml
@@ -36,7 +36,7 @@ RUN /fpm-libkml.sh
 RUN yum install -y /libkml*.rpm
 
 # Stuff for gdal build
-RUN mkdir /root/gdal-${version} && wget http://download.osgeo.org/gdal/${version}/gdal-${version}.tar.gz -O /root/gdal-${version}.tar.gz && tar -zxf /root/gdal-${version}.tar.gz -C /root
+RUN mkdir /root/gdal-${version} && wget --quiet http://download.osgeo.org/gdal/${version}/gdal-${version}.tar.gz -O /root/gdal-${version}.tar.gz && tar -zxf /root/gdal-${version}.tar.gz -C /root
 
 WORKDIR "/root/gdal-${version}"
 RUN ./configure --prefix=/usr && make -j$(nproc)

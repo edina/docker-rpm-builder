@@ -2,7 +2,7 @@ FROM centos:6
 
 ENV version 3.3.3
 
-RUN yum update -y
+RUN yum update -y && yum -y clean all
 RUN yum install -y wget curl rubygems ruby-devel gcc gcc-c++ tar rpm-build
 RUN gem install cabin -v 0.6.1 --no-ri --no-rdoc
 RUN gem install ffi -v 1.9.3 --no-ri --no-rdoc
@@ -15,7 +15,6 @@ RUN gem install ftw -v 0.0.38 --no-ri --no-rdoc
 RUN gem install http_parser.rb -v 0.6.0 --no-ri --no-rdoc
 RUN gem install json -v 1.8.1 --no-ri --no-rdoc
 RUN gem install fpm -v 1.0.1 --no-ri --no-rdoc
-RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 
 # Stuff for gdal build
 WORKDIR "/root"
