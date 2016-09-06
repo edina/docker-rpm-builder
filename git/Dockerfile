@@ -2,7 +2,6 @@ FROM centos:6
 
 RUN yum update -y
 RUN yum install -y wget curl rubygems ruby-devel gcc 
-RUN gem install --no-ri --no-rdoc fpm
 RUN yum install -y tar xz git
 
 # Stuff for git build
