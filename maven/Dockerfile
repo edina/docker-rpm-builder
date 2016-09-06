@@ -19,7 +19,7 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.n
 
 # Stuff for gdal build
 WORKDIR "/root"
-RUN wget http://mirror.ox.ac.uk/sites/rsync.apache.org/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz -O apache-maven-${version}.tar.gz && tar -zxf apache-maven-${version}.tar.gz
+RUN wget --quiet https://archive.apache.org/dist/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz -O apache-maven-${version}.tar.gz && tar -zxf apache-maven-${version}.tar.gz
 
 RUN mkdir -p /tmp/maven-${version}/opt && cp -r /root/apache-maven-${version} /tmp/maven-${version}/opt/maven-${version}/
 
