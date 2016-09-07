@@ -39,8 +39,7 @@ RUN yum install -y /libkml*.rpm
 RUN mkdir /root/gdal-${version} && wget --quiet http://download.osgeo.org/gdal/${version}/gdal-${version}.tar.gz -O /root/gdal-${version}.tar.gz && tar -zxf /root/gdal-${version}.tar.gz -C /root
 
 WORKDIR "/root/gdal-${version}"
-RUN ./configure --prefix=/usr && make -j$(nproc)
-RUN make install DESTDIR=/tmp/gdal
+RUN ./configure --prefix=/usr && make -j$(nproc) && make install DESTDIR=/tmp/gdal && make clean
 
 WORKDIR "/"
 ADD fpm-gdal.sh /fpm-gdal.sh
