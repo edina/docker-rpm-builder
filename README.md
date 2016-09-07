@@ -1,7 +1,7 @@
 Building RPMs Using Docker
 ==========================
 
-This is a collection of scripts used to build various RPMs for CentOS6/RHEL6 using docker.
+This is a collection of scripts used to build various RPMs for CentOS6/RHEL6 and CentOS7 using docker.
 
 ## Usage
 
