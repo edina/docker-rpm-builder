@@ -1,6 +1,6 @@
 FROM gdal_rpm_el7:latest
 
-ENV version 7.0.1
+ENV version 7.0.2
 
 RUN yum install -y epel-release swig autoconf cmake postgresql-devel expat-devel fcgi-devel \
   freetype-devel fribidi-devel gcc gcc-c++ geos-devel giflib-devel git harfbuzz-devel \
