@@ -53,7 +53,8 @@ WORKDIR "/root/gdal-${version}"
 RUN ./configure --prefix=/usr --with-python --with-fgdb=/usr/local/FileGDB_API-64
 RUN make && make install DESTDIR=/tmp/gdal && make clean && ldconfig
 
-RUN cp /usr/local/FileGDB_API-64/lib/libFileGDBAPI.so /usr/lib && cp /usr/local/FileGDB_API-64/lib/libfgdbunixrtl.so /usr/lib && ldconfig
+RUN cp /usr/local/FileGDB_API-64/lib/libFileGDBAPI.so /tmp/gdal/usr/lib
+RUN cp /usr/local/FileGDB_API-64/lib/libfgdbunixrtl.so /tmp/gdal/usr/lib && ldconfig
 
 WORKDIR "/"
 ADD fpm-gdal.sh /fpm-gdal.sh
