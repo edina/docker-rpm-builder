@@ -1,4 +1,4 @@
-FROM gdal_rpm:latest
+FROM gdal_rpm_el7:latest
 
 ENV version 7.0.1
 
