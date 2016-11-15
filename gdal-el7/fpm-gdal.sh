@@ -1,7 +1,7 @@
 #!/bin/bash
 
-fpm -v 1.11.3 \
-    --iteration 7.el6 \
+fpm -v 2.1.2 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides gdal \

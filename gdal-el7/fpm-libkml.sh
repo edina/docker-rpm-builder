@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fpm -v 1.3.0 \
-    --iteration 2.el6 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides libkml \
