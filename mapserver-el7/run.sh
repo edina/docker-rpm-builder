@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker build -t mapserver_rpm_el7 .
+docker run --rm  -v "$PWD/output":/output mapserver_rpm_el7 bash -c "cp /*.rpm /output"
