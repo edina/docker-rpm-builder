@@ -6,7 +6,7 @@
 # without the disable switch.
 
 fpm -v 1.9.0 \
-    --iteration 1.el7 \
+    --iteration 2.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides mapproxy \
@@ -18,6 +18,7 @@ fpm -v 1.9.0 \
     -d python-lxml \
     -d gdal \
     -d PyYAML \
+    -d python-setuptools \
     -s python \
     -t rpm \
     -n mapproxy \
