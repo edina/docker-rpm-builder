@@ -31,7 +31,7 @@ RUN make install DESTDIR=/tmp/libkml
 
 WORKDIR "/"
 ADD fpm-libkml.sh /fpm-libkml.sh
-ADD after-install.sh /after-install.sh
+ADD after-install-kml.sh /after-install-kml.sh
 RUN /fpm-libkml.sh
 
 RUN yum install -y /libkml*.rpm
@@ -53,9 +53,9 @@ WORKDIR "/root/gdal-${version}"
 RUN ./configure --prefix=/usr --with-python --with-fgdb=/usr/local/FileGDB_API-64
 RUN make && make install DESTDIR=/tmp/gdal && make clean && ldconfig
 
-RUN cp /usr/local/FileGDB_API-64/lib/libFileGDBAPI.so /tmp/gdal/usr/lib
-RUN cp /usr/local/FileGDB_API-64/lib/libfgdbunixrtl.so /tmp/gdal/usr/lib && ldconfig
+RUN mkdir /tmp/gdal/usr/lib/fileGDB && cp /usr/local/FileGDB_API-64/lib/*.so /tmp/gdal/usr/lib/fileGDB
 
 WORKDIR "/"
 ADD fpm-gdal.sh /fpm-gdal.sh
+ADD after-install-gdal.sh /after-install-gdal.sh
 RUN /fpm-gdal.sh
