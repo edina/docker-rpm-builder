@@ -26,5 +26,6 @@ RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
 RUN make && make install DESTDIR=/tmp/mapserver
 
 WORKDIR "/"
+ADD after-install.sh /after-install.sh
 ADD fpm-mapserver.sh /fpm-mapserver.sh
 RUN /fpm-mapserver.sh
