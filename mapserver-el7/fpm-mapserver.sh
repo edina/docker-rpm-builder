@@ -16,14 +16,14 @@ fpm -v 7.0.2 \
     -d expat \
     -d libxml2 \
     -d proj-epsg \
-    -d proj-devel \
+    -d proj \
     -d libkml \
     -d gdal \
-    -d fcgi-devel \
-    -d libxslt-devel \
-    -d librsvg2-devel \
-    -d exempi-devel \
-    -d fribidi-devel \
+    -d fcgi \
+    -d libxslt \
+    -d librsvg2 \
+    -d exempi \
+    -d fribidi \
     -a x86_64 \
     -n mapserver \
     -s dir \
