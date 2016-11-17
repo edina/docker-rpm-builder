@@ -11,3 +11,4 @@ cd <package>
 ```
 
 The generated RPMs will appear in the package `output` folder.
+*Note that all existing .rpm files will be deleted before the new rpm files are written.*
