@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fpm -v 7.0.1 \
+fpm -v 7.0.2 \
     --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
@@ -16,14 +16,14 @@ fpm -v 7.0.1 \
     -d expat \
     -d libxml2 \
     -d proj-epsg \
-    -d proj-devel \
+    -d proj \
     -d libkml \
     -d gdal \
-    -d fcgi-devel \
-    -d libxslt-devel \
-    -d librsvg2-devel \
-    -d exempi-devel \
-    -d fribidi-devel \
+    -d fcgi \
+    -d libxslt \
+    -d librsvg2 \
+    -d exempi \
+    -d fribidi \
     -a x86_64 \
     -n mapserver \
     -s dir \

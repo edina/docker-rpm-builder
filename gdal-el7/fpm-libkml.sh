@@ -14,5 +14,5 @@ fpm -v 1.3.0 \
     -s dir \
     -C /tmp/libkml \
     -t rpm \
-    --after-install after-install.sh \
+    --after-install after-install-kml.sh \
     usr
