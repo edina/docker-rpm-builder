@@ -51,7 +51,7 @@ WORKDIR "/root"
 RUN wget --quiet http://download.osgeo.org/gdal/${version}/gdal-${version}.tar.gz && tar -zxf gdal-${version}.tar.gz
 WORKDIR "/root/gdal-${version}"
 RUN ./configure --prefix=/usr --with-python --with-fgdb=/usr/local/FileGDB_API-64
-RUN make && make install DESTDIR=/tmp/gdal && make clean && ldconfig
+RUN make -j$(nproc) && make install DESTDIR=/tmp/gdal && make clean && ldconfig
 
 RUN mkdir /tmp/gdal/usr/lib/fileGDB && cp /usr/local/FileGDB_API-64/lib/*.so /tmp/gdal/usr/lib/fileGDB
 
