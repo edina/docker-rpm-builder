@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fpm -v 7.0.2 \
+fpm -v 7.0.3 \
     --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
