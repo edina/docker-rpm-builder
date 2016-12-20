@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fpm -v 2.1.2 \
-    --iteration 3.el7 \
+    --iteration 4.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides gdal \
@@ -12,8 +12,11 @@ fpm -v 2.1.2 \
     -d xerces-c \
     -d curl \
     -d sqlite \
+    -d geos \
     -d expat \
     -d libxml2 \
+    -d proj-epsg \
+    -d proj-devel \
     -d libkml \
     -a x86_64 \
     -n gdal \
