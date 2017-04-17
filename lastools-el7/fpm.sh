@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=170414
+version=20170414
 
 fpm -v ${version} \
     --iteration 1.el7 \

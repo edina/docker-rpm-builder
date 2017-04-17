@@ -1,6 +1,5 @@
 FROM centos:7
 
-ENV version 170414
 # Free LAS tools created for linux systems with "make". (Windows only free tools ignored.)
 ENV FREE_LAS_TOOLS "las2las las2txt lasdiff lasindex lasinfo lasmerge lasprecision laszip txt2las"
 
