@@ -9,19 +9,13 @@ RUN echo "LASzip"
 # Steps from http://scigeo.org/articles/howto-install-latest-geospatial-software-on-linux.html#compile_laszip
 WORKDIR "/root"
 
-
 RUN wget --quiet http://lastools.org/download/laszip.zip
 RUN unzip laszip.zip
 
-RUN mkdir -p  /tmp/laszip/usr/local/bin
+WORKDIR "/root/LAStools" 
+# Make laszip binary and copy to /tmp/laszip/usr/local/bin
+RUN make && mkdir -p  /tmp/laszip/usr/local/bin && cp -r ./bin/laszip /tmp/laszip/usr/local/bin
 
-WORKDIR "/root/LAStools"
-
-RUN make 
-# Copy laszip binary
-RUN cp -r ./bin/laszip /tmp/laszip/usr/local/bin
-
-RUN pwd
 WORKDIR "/root"
 ADD fpm.sh /root/fpm.sh
 RUN /root/fpm.sh
