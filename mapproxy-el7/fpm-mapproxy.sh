@@ -5,8 +5,8 @@
 # dependency looks strange but had trouble with the PyYAML dependency 
 # without the disable switch.
 
-fpm -v 1.9.0 \
-    --iteration 3.el7 \
+fpm -v 1.11.0 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides mapproxy \

@@ -1,6 +1,6 @@
 FROM gdal_rpm_el7:latest
 
-ENV version 1.9.0 
+ENV version 1.11.0 
 
 RUN yum update -y && yum -y clean all
 RUN yum install -y python-setuptools
