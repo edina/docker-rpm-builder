@@ -3,7 +3,7 @@
 version=0.96.0
 
 fpm -v ${version} \
-    --iteration 1.el7 \
+    --iteration 2.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides osm2pgsql \
@@ -11,6 +11,14 @@ fpm -v ${version} \
     -n osm2pgsql \
     -s dir \
     -C /tmp/osm2pgsql \
+    -d boost \
+    -d expat \
+    -d zlib \
+    -d bzip2 \
+    -d proj \
+    -d proj-epsg \
+    -d lua \
+    -d postgresql96 \
     -t rpm \
     usr
 

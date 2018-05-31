@@ -3,7 +3,7 @@
 version=0.46
 
 fpm -v ${version} \
-    --iteration 1.el7 \
+    --iteration 2.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides osmosis \

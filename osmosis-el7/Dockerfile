@@ -27,7 +27,7 @@ WORKDIR "/root/osmosis/usr/local/share/osmosis"
 RUN unzip /root/osmosis-latest.zip
 WORKDIR "/root/osmosis/usr/local/bin"
 # Create a symlink to /usr/local/bin from  /usr/share/osmosis/bin/osmosis
-RUN ln -s ../../share/osmosis/bin/osmosis  osmosis
+RUN ln -s ../share/osmosis/bin/osmosis  osmosis
 RUN ls -l /root/osmosis/usr/local/bin
 WORKDIR "/root"
 
