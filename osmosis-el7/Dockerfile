@@ -2,7 +2,7 @@
 # Using this because it has Ruby pre-installed 
 # as we were having trouble installing Ruby version >= 2.4.0 
 # (which is required for the fpm gem).
-FROM drecom/centos-ruby
+FROM drecom/centos-ruby:2.5.1
 
 ENV version 0.46
 RUN yum update -y && yum -y clean all
