@@ -1,10 +1,10 @@
 FROM centos:7
 
-ENV version 2.89.2
+ENV version 2.138.2
 
 RUN yum update -y && yum -y clean all
 RUN yum install -y wget curl rubygems ruby-devel gcc gcc-c++ tar rpm-build make
-RUN gem install fpm -v 1.6.2 --no-ri --no-rdoc
+RUN gem install fpm -v 1.10.2 --no-ri --no-rdoc
 
 WORKDIR "/root"
 RUN mkdir -p /tmp/jenkins-${version}/usr/share/java
