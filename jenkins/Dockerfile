@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV version 2.138.2
+ENV version 2.138.4
 
 RUN yum update -y && yum -y clean all
 RUN yum install -y wget curl rubygems ruby-devel gcc gcc-c++ tar rpm-build make

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=2.138.2
+version=2.138.4
 
 fpm -v ${version} \
     --iteration 1.el7 \
