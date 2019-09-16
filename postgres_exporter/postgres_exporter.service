@@ -1,0 +1,10 @@
+[Unit]
+Description=Apache Exporter
+
+[Service]
+User=postgres
+EnvironmentFile=/etc/sysconfig/postgres_exporter
+ExecStart=/usr/sbin/postgres_exporter
+
+[Install]
+WantedBy=multi-user.target
