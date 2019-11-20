@@ -1,6 +1,6 @@
 FROM gdal_rpm_el7:latest
 
-ENV version 7.0.5
+ENV version 7.4.2
 
 RUN yum install -y epel-release swig autoconf cmake postgresql-devel expat-devel fcgi-devel \
   freetype-devel fribidi-devel gcc gcc-c++ geos-devel giflib-devel git harfbuzz-devel \
@@ -21,7 +21,8 @@ RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
              -DWITH_CLIENT_WMS=1 -DWITH_CLIENT_WFS=1 -DWITH_GIF=1 -DWITH_WFS=1 \
              -DWITH_SOS=1 -DWITH_GDAL=1 -DWITH_OGR=1 -DWITH_WCS=1 -DWITH_PIXMAN=1 \
              -DWITH_XMLMAPFILE=1 -DWITH_RSVG=1 -DWITH_EXEMPI=1 -DWITH_CAIRO=1 \
-             -DWITH_CSHARP=0 -DWITH_PHP=0 -DWITH_PERL=0 -DWITH_RUBY=0 -DWITH_MYSQL=0
+             -DWITH_CSHARP=0 -DWITH_PHP=0 -DWITH_PERL=0 -DWITH_RUBY=0 -DWITH_MYSQL=0 \
+             -DWITH_PROTOBUFC=0
              
 RUN make && make install DESTDIR=/tmp/mapserver
 

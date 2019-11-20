@@ -1,7 +1,7 @@
 #!/bin/bash
 
-fpm -v 7.0.5 \
-    --iteration 5.el7 \
+fpm -v 7.4.2 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides mapserver \
