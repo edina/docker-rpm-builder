@@ -10,6 +10,6 @@ WORKDIR "/"
 ADD apache2-mod_jk.spec /root/rpmbuild/SPECS/apache2-mod_jk.spec
 ADD jk.conf /root/rpmbuild/SOURCES/jk.conf
 ADD README.SUSE /root/rpmbuild/SOURCES/README.SUSE
-RUN wget --quiet http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.41-src.tar.gz -O /root/rpmbuild/SOURCES/tomcat-connectors-1.2.41-src.tar.gz
+RUN wget --quiet http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.46-src.tar.gz -O /root/rpmbuild/SOURCES/tomcat-connectors-1.2.46-src.tar.gz
 RUN rpmbuild -ba /root/rpmbuild/SPECS/apache2-mod_jk.spec
 

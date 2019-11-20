@@ -46,7 +46,7 @@ BuildRequires:  httpd >= 2.2 httpd-devel >= 2.2 pcre-devel java-1.6.0-openjdk-de
 %define       apache2_cflags            %(/usr/bin/apxs -q CFLAGS)
 %endif
 Summary:        Connectors between Apache and Tomcat Servlet Container
-Version:        1.2.41
+Version:        1.2.46
 Release:        1.0
 License:        Apache Software License ..
 Group:          Productivity/Networking/Web/Frontends
@@ -139,6 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 %{apache2_libexecdir}/*
 
 %changelog
+* Wed Nov 20 2019 andrew.seales@ed.ac.uk - Update version
 * Wed Sep 7 2016 andrew.seales@ed.ac.uk - Update version
 * Thu Jun 27 2015 andrew.seales@ed.ac.uk
 * Thu Aug 18 2011 stoppe@gmx.de
