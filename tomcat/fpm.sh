@@ -18,4 +18,5 @@ fpm -v ${version} \
     --before-remove before-remove.sh \
     --after-remove after-remove.sh \
     opt/tomcat \
-    etc/systemd/system
+    etc/systemd/system \
+    etc/sysconfig

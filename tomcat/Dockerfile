@@ -11,8 +11,9 @@ RUN tar -zxf apache-tomcat.tar.gz
 RUN mkdir -p /tmp/tomcat/opt/tomcat
 RUN mv /root/apache-tomcat-9.0.27/* /tmp/tomcat/opt/tomcat/
 
-RUN mkdir -p /tmp/tomcat/etc/systemd/system
+RUN mkdir -p /tmp/tomcat/etc/systemd/system /tmp/tomcat/etc/sysconfig
 ADD tomcat.service /tmp/tomcat/etc/systemd/system/tomcat.service
+ADD tomcat-envs /tmp/tomcat/etc/sysconfig/tomcat
 
 ADD fpm.sh /root/
 ADD before-install.sh /root/

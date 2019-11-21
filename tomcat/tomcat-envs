@@ -1,0 +1,5 @@
+JAVA_OPTS="-Djava.security.egd=file:///dev/urandom"
+
+CATALINA_BASE=/opt/tomcat
+CATALINA_OPTS="-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
