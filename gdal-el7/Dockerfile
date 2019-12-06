@@ -66,7 +66,7 @@ RUN make -j$(nproc) && \
     make clean && \
     ldconfig
 
-RUN mkdir /tmp/gdal/usr/lib/fileGDB && cp /usr/local/FileGDB_API-64/lib/*.so /tmp/gdal/usr/lib/fileGDB
+RUN mkdir -p /tmp/gdal/usr/lib/fileGDB && cp /usr/local/FileGDB_API-64/lib/*.so /tmp/gdal/usr/lib/fileGDB
 
 WORKDIR "/"
 ADD fpm-gdal.sh /fpm-gdal.sh
