@@ -1,10 +1,10 @@
 #!/bin/bash
 
-fpm -v 2.2.3 \
-    --iteration 3.el7 \
+fpm -v 3.0.2 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
-    --provides gdal \
+    --provides gdal3 \
     -d postgresql \
     -d libpng \
     -d libjpeg \
@@ -15,11 +15,10 @@ fpm -v 2.2.3 \
     -d geos \
     -d expat \
     -d libxml2 \
-    -d proj-epsg \
-    -d proj-devel \
+    -d proj6 \
     -d libkml \
     -a x86_64 \
-    -n gdal \
+    -n gdal3 \
     -s dir \
     -C /tmp/gdal \
     -t rpm \
