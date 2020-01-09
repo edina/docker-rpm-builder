@@ -1,0 +1,14 @@
+[Unit]
+Description=ActiveMQ service
+After=network.target
+
+[Service]
+User=activemq
+Group=activemq
+EnvironmentFile=/etc/sysconfig/activemq
+ExecStart=/opt/activemq/bin/activemq start
+ExecStop=/opt/activemq/bin/activemq stop
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
