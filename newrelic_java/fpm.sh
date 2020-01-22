@@ -1,9 +1,9 @@
 #!/bin/bash
 
-version=3.25.0
+version=5.9.0
 
 fpm -v ${version} \
-    --iteration 1.el6 \
+    --iteration 1.el7 \
     --epoch 1 \
     --vendor EDINA \
     --provides newrelic_java \
