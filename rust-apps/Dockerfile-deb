@@ -1,0 +1,23 @@
+FROM debian:bullseye
+
+RUN apt update && apt install -y curl make wget rubygems ruby-dev tar gcc-x86-64-linux-gnu g++-x86-64-linux-gnu build-essential libc6-dev-amd64-cross rpm
+RUN gem install fpm
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH=$PATH:/root/.cargo/bin
+
+RUN rustup target add x86_64-unknown-linux-gnu
+
+ENV HOST_CC=gcc
+ENV CC_x86_64_unknown_linux_gnu=/usr/bin/x86_64-linux-gnu-gcc
+ENV CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=/usr/bin/x86_64-linux-gnu-gcc
+
+RUN cargo install --root /usr/local --vers =14.1.0 ripgrep --target=x86_64-unknown-linux-gnu
+RUN cargo install --root /usr/local --vers =10.1.0 fd-find  --target=x86_64-unknown-linux-gnu
+RUN cargo install --root /usr/local --vers =0.24.0 bat --target=x86_64-unknown-linux-gnu
+
+WORKDIR "/"
+ADD fpm/* /fpm/
+RUN /fpm/fpm-bat.sh
+RUN /fpm/fpm-rg.sh
+RUN /fpm/fpm-fd.sh

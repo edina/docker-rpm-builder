@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fpm -v 10.1.0 \
-    --iteration 1.el7 \
+    --iteration 2.el7 \
     --epoch 1 \
     --vendor EDINA \
     -a x86_64 \
