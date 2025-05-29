@@ -1,9 +1,9 @@
 #!/bin/bash
 
-version=0.5.1
+version=0.17.1
 
 fpm -v ${version} \
-    --iteration 1.el7 \
+    --iteration 1.el9 \
     --epoch 1 \
     --vendor EDINA \
     --provides postgres_exporter \
