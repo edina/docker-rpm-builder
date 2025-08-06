@@ -1,0 +1,21 @@
+[Unit]
+Description=Prometheus node exporter for machine metrics
+Documentation=https://prometheus.io
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+StartLimitBurst=99999
+EnvironmentFile=-/etc/sysconfig/node_exporter
+ExecStart=node_exporter $ARGS
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
