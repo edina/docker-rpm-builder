@@ -31,7 +31,10 @@ rm -rf $RPM_BUILD_ROOT
 install -m 0755 -vd               %{buildroot}%{_bindir}
 install -m 0755 -vp node_exporter %{buildroot}%{_bindir}/
 
+%if 0%{?rhel} >=9 
 install -Dpm0644 %{S:1} %{buildroot}%{_sysusersdir}/%{name}.conf
+%endif
+
 install -Dpm0644 %{S:2} %{buildroot}%{_unitdir}/%{name}.service
 pushd %{buildroot}%{_unitdir}
 ln -s %{name}.service node_exporter.service
@@ -40,8 +43,17 @@ install -Dpm0644 %{S:3} %{buildroot}%{_sysconfdir}/sysconfig/node_exporter
 mkdir -p %{buildroot}%{_tmpfilesdir}
 install -m 0644 %{S:4} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 mkdir -vp %{buildroot}%{_sharedstatedir}/node_exporter/node-exporter
+
 %pre
+
+%if 0%{?rhel} >=9
 %sysusers_create_compat %{S:1}
+%else
+getent group 'prometheus' >/dev/null || groupadd -r 'prometheus' || :
+getent passwd 'prometheus' >/dev/null || \
+    useradd -r -g 'prometheus' -d '/var/lib/prometheus' -s '/sbin/nologin' -c 'Prometheus user account' 'prometheus' || :
+getent group 'prometheus' >/dev/null || groupadd -r 'prometheus' || :
+%endif
 
 %post
 %systemd_post node_exporter.service
@@ -58,7 +70,11 @@ mkdir -vp %{buildroot}%{_sharedstatedir}/node_exporter/node-exporter
 %config(noreplace) %{_sysconfdir}/sysconfig/node_exporter
 %{_unitdir}/%{name}.service
 %{_unitdir}/node_exporter.service
+
+%if 0%{?rhel} >=9   
 %{_sysusersdir}/%{name}.conf
+%endif 
+
 %dir %attr(0755,prometheus,prometheus) %{_sharedstatedir}/node_exporter
 %{_tmpfilesdir}/%{name}.conf
 
