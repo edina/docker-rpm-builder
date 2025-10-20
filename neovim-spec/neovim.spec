@@ -65,10 +65,8 @@ find "%{buildroot}%{_prefix}/local/share" -mindepth 1 \( -type f -o -type l \) -
   | sed -e 's|^%{buildroot}||' >> filelist || :
 
 %files -f filelist
-# You may also add license docs if available, e.g.:
-# %license LICENSE
 
 %changelog
-* Mon Oct 20 2025 Your Name <you@example.com> - 0.11.4-1
-- Initial package of prebuilt Neovim layout into /usr/local
+* Mon Oct 20 2025 Nick Dandoulakis <nick.dan@ed.ac.uk> - 0.11.4-1
+- Package prebuilt neovim 
 
