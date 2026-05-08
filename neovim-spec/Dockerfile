@@ -3,7 +3,7 @@ FROM rockylinux:8
 RUN yum update -y && yum -y clean all
 RUN yum install -y curl gcc gcc-c++ tar rpm-build make
 
-ENV NVIM_VERSION=0.11.4
+ENV NVIM_VERSION=0.12.2
 
 WORKDIR "/"
 

@@ -1,5 +1,5 @@
 Name:           neovim
-Version:        0.11.4
+Version:        0.12.2
 Release:        1%{?dist}
 Summary:        Neovim editor (prebuilt files layout)
 Epoch:		1
@@ -67,6 +67,7 @@ find "%{buildroot}%{_prefix}/local/share" -mindepth 1 \( -type f -o -type l \) -
 %files -f filelist
 
 %changelog
+* Wed May 06 2026 Andrew Seales <andrew.seales@ed.ac.uk> - 0.12.2-1
 * Mon Oct 20 2025 Nick Dandoulakis <nick.dan@ed.ac.uk> - 0.11.4-1
 - Package prebuilt neovim 
 
